@@ -1,5 +1,4 @@
 @import "defaults";
-@import "variables";
 @import "themes/{{ default "light" .Site.Params.BookTheme }}";
 
 @import "normalize";
@@ -10,6 +9,3 @@
 
 @import "markdown";
 @import "shortcodes";
-
-// Custom defined styles
-@import "custom";
