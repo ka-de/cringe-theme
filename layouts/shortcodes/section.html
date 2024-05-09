@@ -3,7 +3,7 @@
   <dt>
     <a href="{{ .RelPermalink }}">{{ partial "docs/title" . }}</a>
   </dt>
-  {{ if (in $.Params "summary") -}}
+  {{ if (in $.Params "details") -}}
   <dd class="markdown-inner">
     {{ default .Summary .Description }}
   </dd>
