@@ -72,7 +72,6 @@
     padding: 0 $padding-4;
     background: var(--gray-200);
     border-radius: $border-radius;
-    font-size: 0.875em;
   }
 
   pre {
@@ -129,8 +128,6 @@
 
   hr {
     height: $padding-1;
-    border: none;
-    background: var(--gray-200);
   }
 
   ul,

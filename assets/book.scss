@@ -10,6 +10,13 @@
 @import "markdown";
 @import "shortcodes";
 
-.markdown hr {
-  background: #AAA;
+.markdown {
+  hr {
+    background: #AAA;
+    border: none;
+  }
+
+  code {
+    font-size: 0.8em;
+  }
 }
