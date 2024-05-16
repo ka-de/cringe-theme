@@ -54,6 +54,12 @@ aside nav ul {
   li {
     margin: 1em 0;
     position: relative;
+    font-weight: bold;
+  }
+
+  /* Reset font-weight for nested a elements */
+  li li {
+    font-weight: normal;
   }
 
   a {
