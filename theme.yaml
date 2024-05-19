@@ -1,0 +1,21 @@
+name: cringe-theme
+license: MIT
+licenselink: https://github.com/ka-de/cringe-theme/blob/master/LICENSE
+description: A plain Hugo theme.
+homepage: https://github.com/ka-de/cringe-theme
+demosite: https://cringe.live
+tags:
+  - responsive
+  - clean
+  - documentation
+  - docs
+  - flexbox
+  - search
+  - mobile
+  - multilingual
+  - disqus
+features: []
+min_version: "0.68"
+author:
+  name: Balazs Horvath
+  homepage: https://cringe.live
