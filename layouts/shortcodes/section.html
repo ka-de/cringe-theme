@@ -1,12 +1,12 @@
 <dl>
-{{ range .Page.Pages }}
+  {{ range .Page.Pages }}
   <dt>
-    <a href="{{ .RelPermalink }}">{{ partial "docs/title" . }}</a>
+    <a href="{{ .RelPermalink }}">{{ partial "docs/title" . | markdownify }}</a>
   </dt>
   {{ if (in $.Params "details") -}}
   <dd class="markdown-inner">
-    {{ default .Summary .Description }}
+    {{ .Params.summary | markdownify }}
   </dd>
   {{ end -}}
-{{ end }}
+  {{ end }}
 </dl>
