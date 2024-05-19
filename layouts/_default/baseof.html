@@ -3,6 +3,9 @@
 <head>
   {{ partial "docs/html-head" . }}
   {{ partial "docs/inject/head" . }}
+  {{ if .Param "math" }}
+    {{ partialCached "math.html" . }}
+  {{ end }}
 </head>
 <body dir="{{ default "ltr" .Site.Language.LanguageDirection }}">
   <input type="checkbox" class="hidden toggle" id="menu-control" />
