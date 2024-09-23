@@ -2,6 +2,29 @@
   font-size: 0.5rem;
 }
 
+.site-title {
+  display: inline-block;
+  position: relative;
+}
+
+.site-title::after {
+  content: '';
+  display: inline-block;
+  width: 1ch;
+  height: 1em;
+  background-color: currentColor;
+  position: absolute;
+  right: -1ch;
+  animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+}
+
 html {
   font-size: $font-size-base;
   scroll-behavior: smooth;
