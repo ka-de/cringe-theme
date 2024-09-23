@@ -7,6 +7,10 @@
   position: relative;
 }
 
+#site-title::before {
+  content: "⟁";
+}
+
 #site-title::after {
   content: "";
   display: inline-block;
