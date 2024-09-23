@@ -10,12 +10,13 @@
 #site-title::after {
   content: "";
   display: inline-block;
-  width: 1ch;
+  width: 0.2ch;
   height: 1em;
   background-color: currentColor;
   position: absolute;
-  right: 0;
+  right: -0.2em;
   animation: blink 1s steps(2, start) infinite;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 @keyframes blink {
