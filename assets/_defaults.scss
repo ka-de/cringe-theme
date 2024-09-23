@@ -20,7 +20,7 @@ $header-height: 3.5rem !default;
 $menu-width: 20rem !default;
 $toc-width: 25rem !default;
 
-$mobile-breakpoint: $menu-width + $body-min-width * 3 + $toc-width + 1rem !default;
+$mobile-breakpoint: $menu-width + $body-min-width * 3 + $toc-width + 2rem !default;
 
 $hint-colors: (
   info: #1e66f5,
