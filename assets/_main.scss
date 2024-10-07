@@ -2,13 +2,13 @@
   font-size: 0.5rem;
 }
 
+#site-title::before {
+  content: "⟁";
+}
+
 #site-title {
   display: inline-block;
   position: relative;
-}
-
-#site-title::before {
-  content: "⟁";
 }
 
 #site-title::after {
@@ -21,6 +21,29 @@
   right: -0.2em;
   animation: blink 1s steps(2, start) infinite;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+#site-title::before {
+  opacity: 0.4;
+  content: "⟁";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  animation: psychedelic-shadow 2s infinite;
+}
+
+@keyframes psychedelic-shadow {
+  0% {
+    text-shadow: 0 0 10px red, 0 0 20px orange, 0 0 30px yellow, 0 0 40px green, 0 0 50px blue, 0 0 60px indigo, 0 0 70px violet;
+  }
+  50% {
+    text-shadow: 0 0 10px violet, 0 0 20px indigo, 0 0 30px blue, 0 0 40px green, 0 0 50px yellow, 0 0 60px orange, 0 0 70px red;
+  }
+  100% {
+    text-shadow: 0 0 10px red, 0 0 20px orange, 0 0 30px yellow, 0 0 40px green, 0 0 50px blue, 0 0 60px indigo, 0 0 70px violet;
+  }
 }
 
 @keyframes blink {
