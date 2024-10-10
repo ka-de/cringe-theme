@@ -1,34 +1,47 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.Language.Lang }}">
-
   <head>
-    {{ partial "docs/html-head" . }}
+    </head>{{ partial "docs/html-head" . }}
     {{ partial "docs/inject/head" . }}
-
     <style>
       .not-found {
         text-align: center;
       }
+  
+      span {
+        font-size: 10vmin;
+      }
       .not-found h1 {
         margin: .25em 0 0 0;
-        opacity: .25;
-        font-size: 40vmin;
+        opacity: .50;
+        font-size: 20vmin;
+        animation: psychedelic-shadow 5s infinite alternate;
+      }
+      
+      @keyframes psychedelic-shadow {
+        0% {
+          text-shadow: 0 0 15px rgba(128, 0, 128, 0.6);
+        }
+        50% {
+          text-shadow: 0 0 25px rgba(255, 255, 0, 0.6);
+        }
+        100% {
+          text-shadow: 0 0 15px rgba(128, 0, 128, 0.6);
+        }
       }
     </style>
   </head>
-
   <body>
     <main class="flex justify-center not-found">
       <div>
-        <h1>404</h1>
+        <h1>四百四</h1>
+        <span>404</span>
         <h2>Page Not Found</h2>
         <h3>
-          <a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
+          Return to <a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
         </h3>
       </div>
     </main>
-
     {{ partial "docs/inject/body" . }}
   </body>
-
-  </html>
+</html>
