@@ -152,16 +152,22 @@
   .highlight {
     direction: ltr;
     unicode-bidi: embed;
-  }
+    border-radius: $border-radius;
+    overflow: hidden;
 
-  .highlight table tr {
-    td:nth-child(1) pre {
-      margin: 0;
-      padding-inline-end: 0;
-    }
-    td:nth-child(2) pre {
-      margin: 0;
-      padding-inline-start: 0;
+    table tr {
+      td pre code > span {
+        display: flex;
+      }
+      
+      td:nth-child(1) pre {
+        margin: 0;
+        padding-inline-end: 0;
+      }
+      td:nth-child(2) pre {
+        margin: 0;
+        padding-inline-start: 0;
+      }
     }
   }
 
