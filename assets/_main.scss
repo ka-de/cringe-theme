@@ -64,7 +64,7 @@ body {
   color: var(--body-font-color);
   background: var(--body-background);
 
-  letter-spacing: 0.33px;
+  //letter-spacing: 0.33px;
   font-weight: $body-font-weight;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -238,6 +238,12 @@ body[dir="rtl"] .book-menu {
 
   label {
     line-height: 0;
+  }
+
+  h3 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0 $padding-16;
   }
 
   img.book-icon {
