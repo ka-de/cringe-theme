@@ -6,10 +6,14 @@
   {{ if .Param "math" }}
     {{ partialCached "math.html" . }}
   {{ end }}
+  <!-- blurhash -->
+   <script type="module" src="/blurhash.js"></script>
 </head>
 <body dir="{{ default "ltr" .Site.Language.LanguageDirection }}">
   <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <label for="menu-control" class="hidden">Toggle menu</label>
   <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <label for="toc-control" class="hidden">Toggle table of contents</label>
   <main class="container flex">
     <aside class="book-menu">
       <div class="book-menu-content">
