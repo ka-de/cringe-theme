@@ -22,3 +22,21 @@
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
 }
+
+.image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.image-grid-container {
+    flex: 0 0 45%;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.image-grid-container img {
+    max-width: 100%;
+    height: auto;
+}
