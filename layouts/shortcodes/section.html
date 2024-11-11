@@ -1,13 +1,36 @@
-{{- warnf "Section shortcode is deprecated and will be removed" -}}
 <dl>
   {{ range .Page.Pages }}
-  <dt>
-    <a href="{{ .RelPermalink }}">{{ partial "docs/title" . | markdownify }}</a>
-  </dt>
-  {{ if (in $.Params "details") -}}
-  <dd class="markdown-inner">
-    {{ .Params.summary | markdownify }}
-  </dd>
-  {{ end -}}
+  <div class="section-wrapper">
+    {{ if .Params.image }}
+    <div class="section-image">
+      <div class="image-container" style="aspect-ratio: 1/1;">
+        <canvas 
+          class="blur-hash" 
+          data-blurhash="{{ .Params.blurhash | default "" }}" 
+          width="600" 
+          height="600"
+        ></canvas>
+        <img 
+          src="{{ .Params.image }}" 
+          loading="lazy" 
+          width="50" 
+          height="50"
+          alt="{{ .Params.imageAlt | default "" }}"
+          onload="this.previousElementSibling.style.display = 'none'; this.style.opacity = 1;"
+        >
+      </div>
+    </div>
+    {{ end }}
+    <div class="section-content">
+      <dt class="section-item">
+        <a href="{{ .RelPermalink }}">{{ partial "docs/title" . | markdownify }}</a>
+      </dt>
+      {{ if (in $.Params "details") -}}
+      <dd class="markdown-inner">
+        {{ .Params.summary | markdownify }}
+      </dd>
+      {{ end -}}
+    </div>
+  </div>
   {{ end }}
 </dl>

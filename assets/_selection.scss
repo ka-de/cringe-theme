@@ -1,0 +1,35 @@
+.section-wrapper {
+  display: flex;
+  gap: 1rem;
+}
+
+.section-content {
+  flex: 1;
+}
+
+.section-item {
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.section-image {
+  flex-shrink: 0;
+  width: 600px;
+  height: 600px;
+}
+
+.section-image .image-container {
+  width: 600px;
+  height: 600px;
+  position: relative;
+
+  .blur-hash,
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
