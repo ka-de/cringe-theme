@@ -1,5 +1,6 @@
 <dl>
   {{ range .Page.Pages }}
+  {{ if not (hasPrefix .Title "(redirect)") }}
   <div class="section-wrapper">
     {{ if .Params.image }}
     <div class="section-image">
@@ -29,8 +30,9 @@
       <dd class="markdown-inner">
         {{ .Params.summary | markdownify }}
       </dd>
-      {{ end -}}
+        {{ end -}}
+      </div>
     </div>
-  </div>
+    {{ end }}
   {{ end }}
 </dl>
