@@ -1,5 +1,8 @@
 <h2 class="book-brand">
-  <a class="flex align-center" href="{{ cond (not .Site.Home.File) .Sites.Default.Home.RelPermalink .Site.Home.RelPermalink }}">
+  <a
+    class="flex align-center"
+    href="{{ cond (not .Site.Home.File) .Sites.Default.Home.RelPermalink .Site.Home.RelPermalink }}"
+  >
     {{- with .Site.Params.BookLogo -}}
     <img src="{{ . | relURL }}" alt="Logo" class="book-icon" />
     {{- end -}}
@@ -8,6 +11,13 @@
     </div>
   </a>
   <div id="site-description">
-    <span>&gt; </span>
+    <span
+      style="
+        margin: 0 auto;
+        font-family: monospace;
+        font-variant-ligatures: common-ligatures;
+      "
+      >——— エーアイの冒険 ———</span
+    >
   </div>
 </h2>
