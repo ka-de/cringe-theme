@@ -1,10 +1,26 @@
 <meta charset="UTF-8">
+{{ partial "docs/language-fonts" . }}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="{{ default .Summary .Description }}">
-<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
-<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
-<meta name="msapplication-TileColor" content="#343a40">
-<meta name="color-scheme" content="light dark">
+
+<!-- Theme color for modern browsers -->
+<meta name="theme-color" content="#1E1E2E" />
+<!-- Fallback for older browsers -->
+<style>
+  :root {
+    color-scheme: light dark;
+    --theme-color-light: #EFF1F5;
+    --theme-color-dark: #1E1E2E;
+  }
+  @media (prefers-color-scheme: light) {
+    :root { --theme-color: var(--theme-color-light); }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --theme-color: var(--theme-color-dark); }
+  }
+</style>
+
+<meta name="msapplication-TileColor" content="#1E1E2E">
 <meta name="robots" content="index, follow">
 <meta name="author" content="{{ .Site.Title }}">
 <meta name="keywords" content="{{ with .Keywords }}{{ delimit . ", " }}{{ else }}{{ .Site.Params.Keywords }}{{ end }}">
@@ -54,6 +70,10 @@
 <!-- Theme stylesheet, you can customize scss by creating `assets/custom.scss` in your website -->
 {{- $styles := resources.Get "book.scss" | resources.ExecuteAsTemplate "book.scss" . | css.Sass | resources.Minify | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $styles.RelPermalink }}" {{ template "integrity" $styles }}>
+
+<!-- Syntax highlighting themes -->
+<link rel="stylesheet" href="/css/syntax-latte.css" media="(prefers-color-scheme: light)">
+<link rel="stylesheet" href="/css/syntax-mocha.css" media="(prefers-color-scheme: dark)">
 
 {{- if default true .Site.Params.BookSearch -}}
   {{- $searchJSFile := printf "%s.search.js" .Language.Lang }}
