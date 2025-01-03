@@ -1,0 +1,18 @@
+<dl>
+  {{ range .Page.Pages }}
+  {{ if not (hasPrefix .Title "(redirect)") }}
+  <div class="section-wrapper">
+    <div class="section-content">
+      <dt class="section-item">
+        <a href="{{ .RelPermalink }}">{{ partial "docs/title" . | markdownify }}</a>
+      </dt>
+      {{ if (in $.Params "details") -}}
+      <dd class="markdown-inner">
+        {{ .Params.summary | markdownify }}
+      </dd>
+      {{ end -}}
+    </div>
+  </div>
+  {{ end }}
+  {{ end }}
+</dl> 

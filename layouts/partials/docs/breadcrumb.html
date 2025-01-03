@@ -1,0 +1,24 @@
+{{ $currentPage := . }}
+{{ if and (not .IsHome) (not (eq .RelPermalink (print "/" .Site.Language.Lang "/"))) }}
+<nav class="book-breadcrumb">
+  <a href="{{ "/" | relLangURL }}" class="breadcrumb-home" title="Home">
+    <i class="ms-Icon ms-Icon--HomeSolid" aria-hidden="true"></i>
+  </a>
+  <span class="breadcrumb-separator">/</span>
+  {{ template "breadcrumbnav" (dict "p1" . "p2" .) }}
+</nav>
+{{ end }}
+
+{{ define "breadcrumbnav" }}
+  {{ if .p1.Parent }}
+    {{ template "breadcrumbnav" (dict "p1" .p1.Parent "p2" .p2 ) }}
+  {{ end }}
+  {{ if and (not .p1.IsHome) (not (eq .p1.RelPermalink (print "/" .p1.Site.Language.Lang "/"))) }}
+    {{ if ne .p1 .p2 }}
+      <a href="{{ .p1.RelPermalink }}">{{ partial "docs/title" .p1 }}</a>
+      <span class="breadcrumb-separator">/</span>
+    {{ else }}
+      <span class="breadcrumb-current">{{ partial "docs/title" .p1 }}</span>
+    {{ end }}
+  {{ end }}
+{{ end }} 

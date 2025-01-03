@@ -27,6 +27,7 @@
       </header>
 
       {{ partial "docs/inject/content-before" . }}
+      {{ partial "docs/breadcrumb" . }}
       {{ template "main" . }} <!-- Page Content -->
       {{ partial "docs/inject/content-after" . }}
 

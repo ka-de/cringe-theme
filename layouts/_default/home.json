@@ -8,9 +8,9 @@
             {{- if $index -}},{{- end -}}
             {
                 "title": {{ $page.Title | jsonify }},
-                "description": {{ $page.Description | jsonify }},
+                "description": {{ $page.Params.summary | jsonify }},
                 "permalink": {{ $page.Permalink | jsonify }},
-                "date": {{ $page.Date.Format "2006-01-02" | jsonify }}
+                "date": {{ ($page.GitInfo.AuthorDate | default now | time.Format "2006-01-02") | jsonify }}
             }
         {{- end -}}
     ]

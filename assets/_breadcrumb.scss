@@ -1,0 +1,44 @@
+.book-breadcrumb {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: $padding-8 $padding-16;
+  margin: (-$padding-16) (-$padding-16) $padding-16 (-$padding-16);
+  background: var(--body-background);
+  border-bottom: 1px solid var(--gray-200);
+  font-size: $font-size-14;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  
+  a {
+    color: var(--body-font-color);
+    opacity: 0.8;
+    display: inline-flex;
+    align-items: center;
+    
+    &:hover {
+      opacity: 1;
+      text-decoration: none;
+    }
+  }
+  
+  .breadcrumb-home {
+    .ms-Icon {
+      font-size: 1.2em;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+    }
+  }
+  
+  .breadcrumb-separator {
+    padding: 0 $padding-4;
+    opacity: 0.5;
+  }
+  
+  .breadcrumb-current {
+    opacity: 0.5;
+  }
+} 
