@@ -32,14 +32,20 @@
 <meta name="twitter:site" content="@_ka_de">
 <meta name="twitter:title" content="{{ partial "docs/html-head-title" . }}">
 <meta name="twitter:description" content="{{ default .Summary .Description }}">
-<meta name="twitter:image" content="{{ .Site.BaseURL }}{{ default "logo.png" (index .Site.Params.Images 0) }}">
+<meta name="twitter:image" content="{{ with .Params.image }}{{ . }}{{ else }}{{ .Site.BaseURL }}{{ default "logo.png" (index .Site.Params.Images 0) }}{{ end }}">
 <meta name="twitter:image:alt" content="{{ partial "docs/html-head-title" . }}">
 
 {{- with .Page.Params.BookHref -}}
   <meta http-equiv="Refresh" content="0; url='{{ . }}'" />
 {{- end -}}
 
-{{- template "_internal/opengraph.html" . -}}
+<!-- OpenGraph -->
+<meta property="og:title" content="{{ partial "docs/html-head-title" . }}" />
+<meta property="og:description" content="{{ default .Summary .Description }}" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="{{ .Permalink }}" />
+<meta property="og:image" content="{{ with .Params.image }}{{ . }}{{ else }}{{ .Site.BaseURL }}{{ default "logo.png" (index .Site.Params.Images 0) }}{{ end }}" />
+<meta property="og:site_name" content="{{ .Site.Title }}" />
 
 <title>{{ partial "docs/html-head-title" . }}</title>
 {{ partial "docs/html-head-favicon" . }}
