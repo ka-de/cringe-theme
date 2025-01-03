@@ -39,13 +39,13 @@
   <meta http-equiv="Refresh" content="0; url='{{ . }}'" />
 {{- end -}}
 
-<!-- OpenGraph -->
-<meta property="og:title" content="{{ partial "docs/html-head-title" . }}" />
-<meta property="og:description" content="{{ default .Summary .Description }}" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="{{ .Permalink }}" />
-<meta property="og:image" content="{{ with .Params.image }}{{ . }}{{ else }}{{ .Site.BaseURL }}{{ default "logo.png" (index .Site.Params.Images 0) }}{{ end }}" />
-<meta property="og:site_name" content="{{ .Site.Title }}" />
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:title" content="{{ partial "docs/html-head-title" . }}">
+<meta property="og:description" content="{{ default .Summary .Description }}">
+<meta property="og:image" content="{{ with .Params.image }}{{ . }}{{ else }}{{ .Site.BaseURL }}{{ default "logo.png" (index .Site.Params.Images 0) }}{{ end }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
 
 <title>{{ partial "docs/html-head-title" . }}</title>
 {{ partial "docs/html-head-favicon" . }}
