@@ -1,0 +1,93 @@
+{{ $svg := .Get "src" }}
+<figure class="responsive-svg-wrapper" style="width: 100%; max-width: 100%; margin: 1rem 0;">
+  {{ $svgContent := readFile (printf "static%s" $svg) }}
+  {{ $svgContent | safeHTML }}
+  {{ if eq $svg "/svg/dropout.svg" }}
+    {{ $lang := .Page.Language.Lang }}
+    <div class="dropout-labels">
+      <div class="label-column">
+        {{ if eq $lang "ja" }}
+          <div class="label">標準的なニューラルネット</div>
+        {{ else if eq $lang "hu" }}
+          <div class="label">Normál Neurális Háló</div>
+        {{ else }}
+          <div class="label">Standard Neural Net</div>
+        {{ end }}
+      </div>
+      <div class="label-column">
+        {{ if eq $lang "ja" }}
+          <div class="label">ドロップアウト適用後</div>
+        {{ else if eq $lang "hu" }}
+          <div class="label">Dropout Alkalmazása Után</div>
+        {{ else }}
+          <div class="label">After Applying Dropout</div>
+        {{ end }}
+      </div>
+    </div>
+  {{ end }}
+</figure>
+<style>
+:root {
+  --svg-text: #4c4f69;  /* Catppuccin Latte - text */
+  --svg-stroke: #4c4f69; /* Catppuccin Latte - text */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --svg-text: #cdd6f4;  /* Catppuccin Mocha - text */
+    --svg-stroke: #cdd6f4; /* Catppuccin Mocha - text */
+  }
+}
+
+.responsive-svg-wrapper {
+  display: block;
+}
+
+.responsive-svg-wrapper svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  color: var(--svg-text);
+}
+
+.responsive-svg-wrapper svg * {
+  stroke: var(--svg-stroke);
+  vector-effect: non-scaling-stroke;
+}
+
+.responsive-svg-wrapper svg text {
+  fill: var(--svg-text);
+  stroke: none;
+}
+
+.responsive-svg-wrapper svg path,
+.responsive-svg-wrapper svg line,
+.responsive-svg-wrapper svg circle,
+.responsive-svg-wrapper svg rect {
+  stroke: var(--svg-stroke);
+  stroke-width: 1;
+  fill: none;
+}
+
+.responsive-svg-wrapper svg g[id^="layer"] {
+  stroke: var(--svg-stroke);
+  fill: none;
+}
+
+.dropout-labels {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-around;
+  color: var(--svg-text);
+  width: 100%;
+}
+
+.label-column {
+  flex: 1;
+  text-align: center;
+}
+
+.label {
+  margin: -2.5rem 0;
+}
+</style> 
