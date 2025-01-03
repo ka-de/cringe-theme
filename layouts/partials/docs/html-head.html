@@ -28,10 +28,12 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
 <!-- Twitter Card -->
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@_ka_de">
 <meta name="twitter:title" content="{{ partial "docs/html-head-title" . }}">
 <meta name="twitter:description" content="{{ default .Summary .Description }}">
+<meta name="twitter:image" content="{{ .Site.BaseURL }}{{ default "logo.png" (index .Site.Params.Images 0) }}">
+<meta name="twitter:image:alt" content="{{ partial "docs/html-head-title" . }}">
 
 {{- with .Page.Params.BookHref -}}
   <meta http-equiv="Refresh" content="0; url='{{ . }}'" />
