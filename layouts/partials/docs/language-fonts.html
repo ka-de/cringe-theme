@@ -2,7 +2,7 @@
 <!-- Hungarian fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hungarian:wght@400;500;600;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hungarian:wght@400;500;600;700&family=Roboto+Mono&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --font-family-base: 'Noto Sans Hungarian', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
@@ -13,17 +13,38 @@
   html, body,
   .book-menu-content,
   .book-toc-content,
-  .markdown,
   .book-header,
   .book-search input,
   .book-brand,
   h1, h2, h3, h4, h5, h6,
   p, span, div, a, button, input, textarea, select {
-    font-family: var(--font-family-base) !important;
+    font-family: var(--font-family-base);
     font-feature-settings: "kern" 1, "liga" 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+  }
+
+  /* Handle markdown content separately */
+  .markdown {
+    font-family: var(--font-family-base);
+  }
+
+  /* Target all elements within code blocks */
+  .highlight pre code,
+  .highlight pre code *,
+  .highlight pre code span,
+  .markdown code,
+  .markdown pre,
+  .markdown kbd,
+  .markdown samp,
+  .highlight,
+  .chroma,
+  .book-tabs pre,
+  .code-block,
+  .inline-code {
+    font-family: var(--font-family-mono) !important;
+    font-feature-settings: normal;
   }
 
   /* Quote container and its dynamically loaded content */
@@ -32,7 +53,7 @@
   #quote-container p,
   #quote-container em,
   #quote-container footer {
-    font-family: var(--font-family-base) !important;
+    font-family: var(--font-family-base);
   }
 
   /* Quote specific styling */
@@ -43,18 +64,6 @@
   
   #quote-container blockquote footer {
     font-weight: 600;
-  }
-  
-  /* Monospace fonts for all code elements */
-  code, pre, kbd, samp,
-  .highlight,
-  .chroma,
-  .markdown code,
-  .markdown pre,
-  .book-tabs pre,
-  .code-block,
-  .inline-code {
-    font-family: var(--font-family-mono) !important;
   }
 </style>
 {{ else if eq .Site.Language.Lang "ja" }}
